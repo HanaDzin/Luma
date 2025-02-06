@@ -1,6 +1,7 @@
 import Features from "./sections/Features";
 import Header from "./sections/Header";
 import Hero from "./sections/Hero";
+import Pricing from "./sections/Pricing";
 
 export default function App() {
   return (
@@ -8,6 +9,7 @@ export default function App() {
       <Header />
       <Hero />
       <Features />
+      <Pricing />
     </main>
   );
 }
