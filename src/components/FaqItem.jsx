@@ -1,7 +1,6 @@
 import clsx from "clsx";
 import { useState } from "react";
-import { SlideDown } from "react-slidedown";
-import "react-slidedown/lib/slidedown.css";
+import { Collapse } from "react-collapse";
 
 const FaqItem = ({ item, index }) => {
   const [activeId, setActiveId] = useState(null);
@@ -12,7 +11,7 @@ const FaqItem = ({ item, index }) => {
       <div
         className="group relative flex cursor-pointer items-center justify-between gap-10 px-7"
         onClick={() => {
-          setActiveId(activeId === item.id ? null : item.id);
+          setActiveId(active ? null : item.id);
         }}
       >
         <div className="flex-1">
@@ -40,11 +39,10 @@ const FaqItem = ({ item, index }) => {
         </div>
       </div>
 
-      <SlideDown>
-        {activeId === item.id && (
-          <div className="body-3 px-7 py-3.5">{item.answer}</div>
-        )}
-      </SlideDown>
+      <Collapse isOpened={active}>
+        <div className="body-3 px-7 py-3.5">{item.answer}</div>
+      </Collapse>
+
       <div
         className={clsx(
           "absolute g5 -bottom-7 -top-7 left-0 right-0 -z-1 rounded-3xl opacity-0 transition-opacity duration-500",
